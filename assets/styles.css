@@ -763,6 +763,12 @@ p { max-width: 68ch; }
   background: var(--hairline);
   border: 1px solid var(--hairline);
 }
+/* 5-card variant for consultation audiences: 5 across desktop, 2+2+1 tablet (last full-width), 1 col mobile */
+.industries--five { grid-template-columns: repeat(5, 1fr); }
+@media (max-width: 980px) {
+  .industries--five { grid-template-columns: repeat(2, 1fr); }
+  .industries--five .industry:last-child { grid-column: span 2; }
+}
 .industry {
   background: var(--paper);
   padding: 2.2rem 1.6rem;
