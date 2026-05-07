@@ -1543,12 +1543,21 @@ p { max-width: 68ch; }
 }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 1280px) {
+@media (max-width: 1280px) and (min-width: 1025px) {
+  /* Tablet-landscape range only: 2 + 2 + 1 split. 5 cards in 6 cols. */
   .product-band { grid-template-columns: repeat(6, 1fr); }
   .product-card--wide { grid-column: span 3; }
   .product-card--mid { grid-column: span 3; }
-  /* 5 cards at tablet width = 2 + 2 + 1; let the lonely 5th card go full-width */
   .product-band > .product-card:last-child:nth-child(5) { grid-column: span 6; }
+}
+@media (max-width: 1024px) {
+  /* Tablet-portrait and below: stack all product cards in a single column.
+     Override the 5th-card span-6 rule from the desktop range too. */
+  .product-band { grid-template-columns: 1fr !important; }
+  .product-band > .product-card,
+  .product-card--wide,
+  .product-card--mid,
+  .product-band > .product-card:last-child:nth-child(5) { grid-column: span 1 !important; }
 }
 @media (max-width: 980px) {
   .nav__menu .nav__links, .nav__menu .nav__cta { display: none; }
