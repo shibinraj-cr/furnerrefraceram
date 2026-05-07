@@ -1891,6 +1891,141 @@ p { max-width: 68ch; }
   .inline-stats { gap: 0.8rem; }
 }
 
+/* =======================================================================
+   Mobile polish (≤980px / ≤640px / ≤480px)
+   All rules scoped to narrow viewports only — desktop view untouched.
+   ======================================================================= */
+
+@media (max-width: 980px) {
+  /* Reset ID-scoped 2-col grids on Refractory Products page so the spec
+     aside doesn't try to sit beside the main content on tablet/mobile.
+     Parent .product-section__inner is already 1fr at this breakpoint. */
+  #calcium-silicate .product-section__inner,
+  #ceramic-fibre .product-section__inner { grid-template-columns: 1fr; }
+  /* Paver hero R-mark drifts on tablet — keep it on the logo */
+  .paver-hero__logo-frame { max-width: 280px; }
+}
+
+@media (max-width: 640px) {
+  /* Hero spacing + lede density */
+  .hero { padding: 6.5rem 0 3rem; }
+  .hero__lede { font-size: 0.95rem; line-height: 1.55; }
+  .hero__ctas { gap: 0.7rem; }
+  .hero__ctas .btn { font-size: 0.78rem; padding: 0.85rem 1.2rem; }
+
+  /* Page hero (subpages) */
+  .page-hero { padding: 6.5rem 0 2.5rem; min-height: auto; }
+  .page-hero__title { font-size: clamp(2rem, 9vw, 2.8rem); line-height: 1.05; }
+  .page-hero__lede { font-size: 0.95rem; line-height: 1.55; margin-top: 1.2rem; }
+  .page-hero__crumb { font-size: 0.6rem; flex-wrap: wrap; gap: 0.4rem; }
+
+  /* Section padding tighter */
+  .section { padding: 3.5rem 0; }
+  .section--cream { padding: 3.5rem 0; }
+
+  /* Marquee item size */
+  .marquee__item { font-size: 0.85rem; }
+
+  /* Capabilities band — collapse to single column from 1fr 1fr */
+  .capabilities { grid-template-columns: 1fr; gap: 0; }
+  .capability { padding: 1.8rem 0; border-left: 0 !important; padding-left: 0 !important; }
+  .capability:not(:first-child) { border-top: 1px solid var(--hairline-light); padding-top: 1.8rem; }
+
+  /* Industries grid cells (homepage 8-up + consultation 5-up) */
+  .industry { padding: 1.6rem 1.2rem; min-height: auto; }
+  .industry__icon { width: 36px; height: 36px; }
+  .industry__name { font-size: 1.15rem; }
+
+  /* Product band cards */
+  .product-card { min-height: 360px; padding: 1.4rem; }
+  .product-card__title { font-size: 1.4rem; }
+
+  /* Stats band */
+  .stat__num { font-size: 2.4rem; }
+
+  /* CTA strip */
+  .cta-strip { padding: 4rem var(--pad-x); }
+  .cta-strip h2 { font-size: clamp(1.6rem, 7vw, 2.4rem); }
+
+  /* Product detail blocks (abrasives / refractory / chemicals / refractory products) */
+  .product-section { padding: 3rem 0; }
+  .product-detail__title { font-size: clamp(1.6rem, 7vw, 2.4rem); }
+  .product-detail__lede { font-size: 0.95rem; line-height: 1.55; }
+  .product-detail__num { font-size: 0.65rem; }
+  .spec { padding: 1.5rem; margin-top: 1.5rem; }
+  .spec h4 { font-size: 0.65rem; }
+  .spec ul li { font-size: 0.78rem; }
+
+  /* Calcium silicate / Ceramic fibre meta box → stacked 1 col */
+  .cs-meta { grid-template-columns: 1fr; gap: 1.1rem; padding-top: 1.2rem; margin-top: 1.6rem; }
+  .cs-meta__group h4 { font-size: 0.62rem; }
+
+  /* Type-card grids (calcium silicate types, ceramic fibre forms,
+     fired refractory family teasers) — force 1 col */
+  .cs-types { grid-template-columns: 1fr; gap: 1rem; }
+  .cs-types-block__heading { font-size: 1.4rem; }
+  .cs-types-wrap { margin-top: 3rem; padding-top: 2rem; }
+  .cs-type__body { padding: 1rem; }
+
+  /* Fired refractory detail blocks */
+  .fr-detail { padding: 2rem 1rem; margin-top: 3rem; }
+  .fr-detail__title { font-size: clamp(1.4rem, 6vw, 2rem); }
+  .fr-detail__sub { font-size: 0.95rem; }
+  .fr-detail__overview { font-size: 0.95rem; line-height: 1.55; margin-bottom: 1.5rem; }
+  .fr-detail__h4 { font-size: 0.66rem; margin: 1.2rem 0 0.7rem; }
+  .fr-detail__list li { font-size: 0.88rem; padding: 0.4rem 0 0.4rem 1rem; }
+
+  /* Capability strip */
+  .fr-capability { margin-top: 3.5rem; padding-top: 2.5rem; }
+  .fr-capability__heading { font-size: clamp(1.5rem, 7vw, 2.2rem); }
+  .fr-capability__intro { font-size: 0.92rem; line-height: 1.55; }
+  .fr-capability__grid { gap: 1.6rem; padding-top: 2rem; }
+
+  /* Application tables — already overflow-x scroll, just shrink type */
+  .fr-apps { font-size: 0.82rem; min-width: 420px; }
+  .fr-apps thead th, .fr-apps tbody td { padding: 0.6rem 0.7rem; }
+
+  /* About values grid */
+  .value { padding: 1.6rem; min-height: auto; }
+  .value__title { font-size: 1.15rem; }
+
+  /* Contact info card / form */
+  .contact-info { padding: 2rem 1.5rem; }
+  .form__title { font-size: 1.5rem; }
+  .form__row { gap: 1rem; }
+
+  /* Lab strip */
+  .lab-strip__copy { padding: 2rem 1.5rem; }
+  .lab-strip__img { min-height: 240px; }
+
+  /* Paver hero R-mark — slightly smaller on phone */
+  .paver-hero__logo-mark { width: 22px; height: 22px; font-size: 0.7rem; }
+  .paver-hero__logo-frame { padding: 1.5rem 1.6rem; max-width: 100%; }
+
+  /* Map iframe — keep visible on phone */
+  .map-wrap { aspect-ratio: 4 / 3; min-height: 280px; }
+
+  /* FRC flame watermark on home — keep tasteful on phone (already
+     dimmed via 768px rule, but constrain max width) */
+  .frc-flame-watermark { max-width: 280px; }
+}
+
+@media (max-width: 480px) {
+  /* Very-narrow phones (≤480 px viewport) */
+  .hero__title { font-size: clamp(1.9rem, 11vw, 2.6rem); line-height: 1.05; }
+  .page-hero__title { font-size: clamp(1.7rem, 10vw, 2.4rem); line-height: 1.05; }
+  .hero__ctas { flex-direction: column; align-items: stretch; }
+  .hero__ctas .btn { width: 100%; justify-content: center; }
+  .nav__logo img { height: 32px; }
+  .nav__logo-text { display: none; }
+  .product-card { min-height: 320px; }
+  .product-card__title { font-size: 1.2rem; }
+  .stat__num { font-size: 2rem; }
+  .fr-detail { padding: 1.6rem 0.8rem; }
+  .cs-type__name { font-size: 0.98rem; }
+  .cs-type__desc { font-size: 0.8rem; }
+}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
